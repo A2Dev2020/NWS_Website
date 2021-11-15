@@ -7,6 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    Je suis $prenom à la NWS 
+    Je suis $prenom à la NWS
+
+    <form method="POST" action="add.php">
+
+        <label for="name">Nom de l'étudiant</label>
+        <input type="text" name="name" id="name" />
+        <label for="age">Age de l'étudiant</label>
+        <input type="number" name="age" id="age" />
+
+        <input value="Valider" type="submit"/>
+    </form>
 </body>
 </html>
