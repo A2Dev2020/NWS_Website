@@ -2,11 +2,9 @@
 #region truc
 require_once("pdo.php");
 require_once("Student.php");
+require_once("Repositories/StudentRepository.php");
 
-$students = [];
-$students[] = new Student('Nicolas', 27);
-$students[] = new Student('Charline', 27);
-$students[] = new Student('Charles', 20);
+$students = StudentRepository::GetStudents();
 
 
 $page = file_get_contents('page.html');
@@ -18,6 +16,7 @@ foreach ($students as $student)
 {
     $data = str_replace('$prenom', $student->Prenom, $module);
     $data = str_replace('$age', $student->Age, $data);
+    $data = str_replace('$id', 42, $data);
 
     $student_result .= $data;
 }

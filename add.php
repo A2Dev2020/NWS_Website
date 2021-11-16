@@ -8,7 +8,7 @@ require_once("Repositories/StudentRepository.php");
 var_dump($student);*/
 
 
-$student = new Student("Nicolas", 27);
+$student = new Student($_POST['name'], $_POST['age']);
 
 StudentRepository::AddStudent($student);
 

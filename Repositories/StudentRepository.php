@@ -13,4 +13,20 @@ class StudentRepository
             $student->Age
         ]);
     }
+
+    public static function GetStudents()
+    {
+        $query = GetPDO()->prepare("SELECT * FROM students");
+        $query->execute();
+
+        $result = $query->fetchAll();
+        $array = [];
+
+        foreach ($result as $r)
+        {
+            $array[] = new Student($r["Prenom"], $r["Age"]);
+        }
+
+        return ($array);
+    }
 }
